@@ -4,12 +4,14 @@ import { Button } from '@/components/ui/button';
 export default function Index() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
-      <header className="container mx-auto py-4">
-        <nav className="flex justify-end space-x-4">
-          <a href="#" className="text-green-400 hover:text-green-300">Home</a>
-          <a href="#" className="text-white hover:text-green-300">Blog</a>
-          <a href="#" className="text-white hover:text-green-300">Account</a>
-        </nav>
+      <header className="sticky top-0 z-50 bg-gray-900 shadow-md">
+        <div className="container mx-auto py-4">
+          <nav className="flex justify-end space-x-4">
+            <a href="#" className="text-green-400 hover:text-green-300">Home</a>
+            <a href="#" className="text-white hover:text-green-300">Blog</a>
+            <a href="#" className="text-white hover:text-green-300">Account</a>
+          </nav>
+        </div>
       </header>
 
       <main className="container mx-auto text-center py-20 flex-grow">
