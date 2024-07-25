@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <header className="container mx-auto py-4">
         <nav className="flex justify-end space-x-4">
           <a href="#" className="text-green-400 hover:text-green-300">Home</a>
@@ -12,7 +12,7 @@ export default function Index() {
         </nav>
       </header>
 
-      <main className="container mx-auto text-center py-20">
+      <main className="container mx-auto text-center py-20 flex-grow">
         <h1 className="text-7xl font-bold mb-8 text-green-400">
           The War On<br />SaaS Has Begun
         </h1>
@@ -26,15 +26,33 @@ export default function Index() {
         </Button>
       </main>
 
-      <footer className="container mx-auto py-20">
-        <div className="flex justify-between items-center">
-          <img src="/placeholder.svg" alt="Logo 1" className="mx-auto object-cover w-24 h-8" />
-          <img src="/placeholder.svg" alt="Logo 2" className="mx-auto object-cover w-24 h-8" />
-          <img src="/placeholder.svg" alt="Logo 3" className="mx-auto object-cover w-24 h-8" />
-          <img src="/placeholder.svg" alt="Logo 4" className="mx-auto object-cover w-24 h-8" />
-          <img src="/placeholder.svg" alt="Logo 5" className="mx-auto object-cover w-24 h-8" />
+      <footer className="w-full overflow-hidden py-20">
+        <div className="flex animate-scroll">
+          {[...Array(10)].map((_, index) => (
+            <img 
+              key={index}
+              src="/placeholder.svg" 
+              alt={`Logo ${index + 1}`} 
+              className="mx-8 object-contain h-12 w-auto"
+            />
+          ))}
         </div>
       </footer>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          width: calc(250px * 20);
+        }
+      `}</style>
     </div>
   );
 }
